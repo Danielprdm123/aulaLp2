@@ -1,6 +1,27 @@
 package aula0108;
 
 public class desafio01 {
+	public static boolean Veri (int matriz[][],int pegaval ) {
+		
+		for (int i=0;i<matriz.length;i++) {
+			for (int j=0;j<matriz.length;j++) {
+				if(pegaval == matriz[i][j])
+					return false;
+			}
+		}
+		return true;
+	}
+	public static void Print(int matriz[][]) {
+		for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j <matriz.length; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println(" ");
+        }
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		int [][] matriz = new int [5][5];
 		long inicio = System.currentTimeMillis();
@@ -8,26 +29,14 @@ public class desafio01 {
 		for (int i=0; i< matriz.length;i++) {
 			for(int j = 0;j<matriz.length;j++) {
 				int pegaval = (int) ((int) 1 + (Math.random() * 26));
-				int per =0;
-				while(per < matriz.length) {
-					if(matriz[i][per] == pegaval) {
-						 pegaval = (int) ((int) 1 + (Math.random() * 26));
-						 per =0;
-					}
-					per++;
+				while(Veri (matriz,pegaval) == false) {
+					pegaval = (int) ((int) 1 + (Math.random() * 26));
 				}
 				matriz[i][j] = pegaval;
 			}
 		}
-	 	
-
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j <matriz.length; j++) {
-                System.out.print(matriz[i][j] + " ");
-            }
-            System.out.println(" ");
-        }
- long tempfinal = System.currentTimeMillis();
+		Print(matriz);
+    long tempfinal = System.currentTimeMillis();
 	System.out.println("Tempo final = " + inicio);
 	System.out.println(tempfinal - inicio);
 	
