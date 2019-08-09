@@ -18,7 +18,7 @@ public class desafio02 {
 	     
 	 
 	     Duration duracao = Duration.between( europahora,horabrasil);
-	     System.out.println("Diferença em segundos " + duracao.getSeconds() );
+	     System.out.println("Diferença em segundos " + duracao.getSeconds());
 	     System.out.println("Diferença em horas: " + duracao.toHours() );
 
 }
